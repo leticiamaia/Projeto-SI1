@@ -1,0 +1,44 @@
+@(form: Form[User])
+<html>
+    <head>
+        <title>Portal do Leite</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
+        <meta charset="UTF-8">
+        <meta name=description content="">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="">
+            <!-- Bootstrap core CSS -->
+        <link href="@routes.Assets.at("css/bootstrap.css")" rel="stylesheet">
+            <!-- Custom styles for this template -->
+        <link href="@routes.Assets.at("css/main.css")" rel="stylesheet">
+    </head>
+    <body>
+        @helper.form(routes.Login.authenticate) {
+            <h1>Sign in</h1>
+            @if(form.hasGlobalErrors) {
+                <p class="error">
+                @form.globalError.message
+                </p>
+            }
+            <p>
+                <input type="email" name="email" placeholder="Email" value="@form("email").value">
+            </p>
+            <p>
+                <input type="password" name="password" placeholder="Password">
+            </p>
+            <p>
+                <button type="submit">Login</button>
+            </p>
+        }
+        <header>
+            <a href="@routes.Application.index" id="logo"><span>Zen</span>tasks</a>
+        </header>
+            <!-- jQuery -->
+        <script src="http://code.jquery.com/jquery.js"></script>
+            <!-- Bootstrap JavaScript -->
+        <script src="@routes.Assets.at("js/bootstrap.min.js")"></script>
+        <script src="@routes.Assets.at("js/script.js")"></script>
+        @*<script src="assets/js/script.js"></script>*@
+    </body>
+</html>
